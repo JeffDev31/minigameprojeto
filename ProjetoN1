@@ -1,0 +1,24 @@
+import random
+print("Olá! Seja bem vindo(a) ao Wonder Wolrd! \nNosso jogo funciona da seguinte maneira: você sempre tem 2 caminhos,")
+print("um deles te leva à saida do labirinto o outro à perdição eterna!")
+print("Você vence ao encontrar a sala 9! E perde se alcançar 7 movimentos.")
+
+salaAtual = 1
+movimentos = 0
+
+while movimentos < 7 and salaAtual != 9:
+    escolha = int(input("Você está na sala {} escolha o seu próximo caminho\n[1]Direita \n[2]Esquerda\n".format(salaAtual)))
+
+    if (escolha == 1 and salaAtual != 6) or (escolha == 2 and salaAtual != 8):
+        salaAtual = salaAtual + escolha
+        movimentos = movimentos + 1
+    elif salaAtual == 8:
+        salaAtual = random.randrange(1, 6)
+        movimentos = movimentos + 1
+    else:
+            print("ERRO! Tente novamente!")
+
+if salaAtual == 9:
+    print("Parabéns Guerreiro! Você alcançou o fim do labirinto! Até a próxima!")
+else:
+    print("Oh não você se perdeu para sempre no labirinto!\n ====GAME OVER!====")
